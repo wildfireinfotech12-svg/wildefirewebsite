@@ -1,0 +1,791 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WILDFIRE Fueling the Future of Technology</title>
+  <meta name="description"
+    content="WILDFIRE is a premier IT company in Surat offering Web Development, App Development, AI Solutions, and Digital Marketing." />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2  family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    :root {
+      --fire: #FF4D00;
+      --amber: #FF8C00;
+      --dark: #07070D;
+      --dark2: #0D0D18;
+      --card-bg: rgba(255, 255, 255, 0.04);
+      --border: rgba(255, 77, 0, 0.2);
+      --muted: #8888A8;
+      --gradient: linear-gradient(135deg, #FF4D00, #FF8C00, #FFD060);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--dark);
+      color: #F0F0F8;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* -- Navbar -- */
+    .navbar {
+      background: transparent;
+      padding: 18px 0;
+      transition: all .3s ease;
+    }
+
+    .navbar.scrolled {
+      background: rgba(7, 7, 13, .92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+
+    .navbar-brand {
+      font-weight: 800;
+      font-size: 1.5rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-link {
+      color: var(--muted) !important;
+      font-weight: 500;
+      font-size: .9rem;
+      transition: color .3s;
+      position: relative;
+      padding: 8px 16px !important;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 16px;
+      width: 0;
+      height: 2px;
+      background: var(--gradient);
+      border-radius: 2px;
+      transition: width .3s;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: #fff !important;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: calc(100% - 32px);
+    }
+
+    .navbar-toggler {
+      border: 1px solid var(--border);
+      color: #fff;
+    }
+
+    .navbar-toggler-icon {
+      filter: invert(1);
+    }
+
+    .btn-fire {
+      background: var(--gradient);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 26px;
+      font-weight: 600;
+      font-size: .9rem;
+      transition: all .3s;
+      box-shadow: 0 4px 20px rgba(255, 77, 0, .3);
+    }
+
+    .btn-fire:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(255, 77, 0, .5);
+      color: #fff;
+    }
+
+    .btn-outline-fire {
+      border: 1.5px solid var(--fire);
+      color: var(--fire);
+      border-radius: 50px;
+      padding: 10px 26px;
+      font-weight: 600;
+      font-size: .9rem;
+      transition: all .3s;
+      background: transparent;
+    }
+
+    .btn-outline-fire:hover {
+      background: rgba(255, 77, 0, .08);
+      transform: translateY(-2px);
+    }
+
+    .navbar-collapse {
+      background: rgba(7, 7, 13, .98);
+    }
+
+    @media(min-width:992px) {
+      .navbar-collapse {
+        background: transparent;
+      }
+    }
+
+    /* -- Hero -- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(255, 77, 0, .12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255, 77, 0, .03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 77, 0, .03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 18px;
+      border-radius: 100px;
+      background: rgba(255, 77, 0, .1);
+      border: 1px solid var(--border);
+      color: var(--amber);
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero-badge .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--fire);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1)
+      }
+
+      50% {
+        opacity: .5;
+        transform: scale(1.4)
+      }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      margin-bottom: 20px;
+    }
+
+    .text-fire {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 520px;
+      margin-bottom: 36px;
+      line-height: 1.75;
+    }
+
+    .hero-visual {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8rem;
+      position: relative;
+      overflow: hidden;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-16px)
+      }
+    }
+
+    .hero-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gradient);
+      opacity: .05;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 36px;
+      margin-top: 48px;
+      padding-top: 36px;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+
+    .stat-num {
+      font-size: 2rem;
+      font-weight: 800;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label {
+      font-size: .8rem;
+      color: var(--muted);
+    }
+
+    /* -- Section common -- */
+    section {
+      padding: 96px 0;
+    }
+
+    .badge-tag {
+      display: inline-block;
+      padding: 6px 18px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      background: rgba(255, 77, 0, .08);
+      color: var(--amber);
+      font-size: .76rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 520px;
+      margin: 0 auto 56px;
+    }
+
+    /* -- Services -- */
+    .services-bg {
+      background: var(--dark2);
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px 28px;
+      height: 100%;
+      transition: all .3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--gradient);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255, 77, 0, .4);
+      box-shadow: 0 0 40px rgba(255, 77, 0, .2);
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: rgba(255, 77, 0, .1);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--fire);
+      margin-bottom: 20px;
+      transition: all .3s;
+    }
+
+    .service-card:hover .service-icon {
+      background: rgba(255, 77, 0, .2);
+      transform: scale(1.08);
+    }
+
+    .service-card h5 {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: .88rem;
+      line-height: 1.75;
+      margin-bottom: 18px;
+    }
+
+    .service-benefits {
+      list-style: none;
+      padding: 0;
+    }
+
+    .service-benefits li {
+      font-size: .84rem;
+      color: var(--muted);
+      padding: 4px 0;
+    }
+
+    .service-benefits li::before {
+      content: '   ';
+      color: var(--fire);
+      font-weight: 700;
+    }
+
+    /* -- CTA Banner -- */
+    .cta-section {
+      background: linear-gradient(135deg, rgba(255, 77, 0, .12), rgba(255, 140, 0, .06));
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(255, 77, 0, .15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .cta-section p {
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto 36px;
+    }
+
+    /* -- Footer -- */
+    footer {
+      background: var(--dark2);
+      border-top: 1px solid var(--border);
+      padding: 60px 0 28px;
+    }
+
+    .footer-brand-name {
+      font-size: 1.5rem;
+      font-weight: 800;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .footer-tagline {
+      color: var(--muted);
+      font-size: .88rem;
+      margin-top: 8px;
+      max-width: 260px;
+      line-height: 1.7;
+    }
+
+    footer h6 {
+      font-weight: 700;
+      font-size: .9rem;
+      color: #fff;
+      margin-bottom: 18px;
+    }
+
+    footer ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    footer ul li {
+      margin-bottom: 10px;
+    }
+
+    footer ul li a {
+      color: var(--muted);
+      font-size: .87rem;
+      transition: all .3s;
+    }
+
+    footer ul li a:hover {
+      color: var(--fire);
+      padding-left: 4px;
+    }
+
+    footer ul li span {
+      color: var(--muted);
+      font-size: .87rem;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      margin-top: 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-bottom p {
+      color: var(--muted);
+      font-size: .82rem;
+      margin: 0;
+    }
+
+    .footer-bottom a {
+      color: var(--fire);
+    }
+
+    /* -- Reveal animation -- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 {
+      transition-delay: .1s;
+    }
+
+    .delay-2 {
+      transition-delay: .2s;
+    }
+
+    .delay-3 {
+      transition-delay: .3s;
+    }
+
+    .delay-4 {
+      transition-delay: .4s;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- -- NAVBAR ------------------------------------------ -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+    <div class="container">
+      <a class="navbar-brand" href="#"><img src="img/weblogo.png" alt="WILDFIRE"
+          style="height:58px;width:auto;object-fit:contain;margin-right:10px;" /><span
+          style="font-family:Poppins,sans-serif;font-weight:800;font-size:1.4rem;background:linear-gradient(135deg,#FF4D00,#FF8C00,#FFD060);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:0.04em;vertical-align:middle;">WILDFIRE</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-1 py-3 py-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="privacy.html">Privacy</a></li>
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+            <a href="contact.html" class="btn btn-fire">Get Started</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- -- HERO -------------------------------------------- -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-grid"></div>
+    <div class="container position-relative">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7">
+          <div class="hero-badge reveal"><span class="dot"></span> Fueling the Future of Technology</div>
+          <h1 class="reveal">Ignite Your Business with Technology <span class="text-fire">That Moves Fast.</span></h1>
+          <p class="reveal">We build powerful digital solutions from blazing-fast websites and intelligent apps to
+            AI-driven strategies and high-impact marketing that help your business grow without limits.</p>
+          <div class="d-flex flex-wrap gap-3 reveal">
+            <a href="services.html" class="btn btn-fire">Explore Services </a>
+            <a href="contact.html" class="btn btn-outline-fire">Talk to Us</a>
+          </div>
+          <div class="hero-stats reveal">
+            <div>
+              <div class="stat-num" data-target="120" data-suffix="+">0+</div>
+              <div class="stat-label">Projects Delivered</div>
+            </div>
+            <div>
+              <div class="stat-num" data-target="98" data-suffix="%">0%</div>
+              <div class="stat-label">Client Satisfaction</div>
+            </div>
+            <div>
+              <div class="stat-num" data-target="4" data-suffix="+">0+</div>
+              <div class="stat-label">Years Experience</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 d-none d-lg-block">
+          <div class="hero-visual reveal">
+            <img src="images/hero-visual.png" alt="WILDFIRE Tech Hero"
+              style="width:100%;height:100%;object-fit:cover;border-radius:24px;opacity:0.92;" />
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- -- SERVICES ---------------------------------------- -->
+  <section class="services-bg">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="badge-tag">What We Do</span>
+        <h2 class="section-title">Solutions Built for <span class="text-fire">Real Growth</span></h2>
+        <p class="section-sub">From idea to launch we deliver end-to-end technology solutions that create measurable
+          impact.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3 reveal delay-1">
+          <div class="service-card">
+            <div class="service-icon"><i class="bi bi-globe2"></i></div>
+            <h5>Web Development</h5>
+            <p>Fast, modern, responsive websites that convert visitors into loyal customers.</p>
+            <ul class="service-benefits">
+              <li>SEO-optimized architecture</li>
+              <li>Mobile-first design</li>
+              <li>Secure & scalable builds</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal delay-2">
+          <div class="service-card">
+            <div class="service-icon"><i class="bi bi-phone"></i></div>
+            <h5>App Development</h5>
+            <p>Intuitive iOS & Android applications users love, built with clean scalable code.</p>
+            <ul class="service-benefits">
+              <li>Native & cross-platform</li>
+              <li>Seamless UX design</li>
+              <li>Rapid agile delivery</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal delay-3">
+          <div class="service-card">
+            <div class="service-icon"><i class="bi bi-cpu"></i></div>
+            <h5>AI Solutions</h5>
+            <p>Leverage AI to automate processes, gain insights, and make smarter decisions.</p>
+            <ul class="service-benefits">
+              <li>Custom AI models</li>
+              <li>Intelligent automation</li>
+              <li>Future-proof systems</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal delay-4">
+          <div class="service-card">
+            <div class="service-icon"><i class="bi bi-graph-up-arrow"></i></div>
+            <h5>Digital Marketing</h5>
+            <p>Data-driven strategies that put your brand in front of the right audience.</p>
+            <ul class="service-benefits">
+              <li>ROI-focused campaigns</li>
+              <li>Precision targeting</li>
+              <li>Full transparent reporting</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-5 reveal">
+        <a href="services.html" class="btn btn-outline-fire">View All Services </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- -- CTA BANNER -------------------------------------- -->
+  <section class="cta-section">
+    <div class="container position-relative">
+      <div class="reveal">
+        <h2>Ready to grow your business with <span class="text-fire">WILDFIRE </span></h2>
+        <p>Get a free consultation no pressure, just possibilities. We respond within 24 hours.</p>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+          <a href="contact.html" class="btn btn-fire" style="font-size:1rem;padding:14px 34px;">Get a Free Consultation
+          </a>
+          <a href="tel:+917575059224" class="btn btn-outline-fire" style="font-size:1rem;padding:14px 34px;"> +91 75750
+            59224</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- -- FOOTER ------------------------------------------- -->
+  <footer>
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <div class="footer-brand-name">WILDFIRE</div>
+          <p class="footer-tagline">Fueling the Future of Technology. Your vision, our expertise unstoppable results.
+          </p>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+          <h6>Quick Links</h6>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <h6>Services</h6>
+          <ul>
+            <li><a href="services.html">Web Development</a></li>
+            <li><a href="services.html">App Development</a></li>
+            <li><a href="services.html">AI Solutions</a></li>
+            <li><a href="services.html">Digital Marketing</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h6>Contact</h6>
+          <ul>
+            <li><span> Plot No 50, Shubhlaxmi Resi., Umra, Olpad, Surat, Gujarat 394540</span></li>
+            <li><a href="tel:+917575059224"> +91 75750 59224</a></li>
+            <li><a href="mailto:wildfireinfotech12@gmail.com"> wildfireinfotech12@gmail.com</a></li>
+            <li><span> Mon Sat: 9 AM 7 PM IST</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p> 2024 WILDFIRE. All rights reserved.</p>
+        <p>Made with in Surat, Gujarat &nbsp;|&nbsp; <a
+            href="mailto:wildfireinfotech12@gmail.com">wildfireinfotech12@gmail.com</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Navbar scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Counter animation
+    function animateCount(el) {
+      const target = +el.dataset.target, suffix = el.dataset.suffix || '', dur = 1800, start = performance.now();
+      const step = now => {
+        const p = Math.min((now - start) / dur, 1), ease = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.floor(ease * target) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+    const cObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { animateCount(e.target); cObs.unobserve(e.target); } });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-target]').forEach(el => cObs.observe(el));
+  </script>
+</body>
+
+</html>
