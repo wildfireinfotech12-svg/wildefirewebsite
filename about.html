@@ -1,0 +1,868 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — WILDFIRE</title>
+  <meta name="description"
+    content="Learn about WILDFIRE Infotech — a forward-thinking IT company in Surat, Gujarat fueling digital transformation." />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --fire: #FF4D00;
+      --amber: #FF8C00;
+      --dark: #07070D;
+      --dark2: #0D0D18;
+      --card-bg: rgba(255, 255, 255, 0.04);
+      --border: rgba(255, 77, 0, 0.2);
+      --muted: #8888A8;
+      --gradient: linear-gradient(135deg, #FF4D00, #FF8C00, #FFD060);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--dark);
+      color: #F0F0F8;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: transparent;
+      padding: 18px 0;
+      transition: all .3s;
+    }
+
+    .navbar.scrolled {
+      background: rgba(7, 7, 13, .92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+
+    .navbar-brand {
+      font-weight: 800;
+      font-size: 1.5rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-link {
+      color: var(--muted) !important;
+      font-weight: 500;
+      font-size: .9rem;
+      transition: color .3s;
+      padding: 8px 16px !important;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: #fff !important;
+    }
+
+    .btn-fire {
+      background: var(--gradient);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 26px;
+      font-weight: 600;
+      font-size: .9rem;
+      transition: all .3s;
+      box-shadow: 0 4px 20px rgba(255, 77, 0, .3);
+    }
+
+    .btn-fire:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(255, 77, 0, .5);
+      color: #fff;
+    }
+
+    .btn-outline-fire {
+      border: 1.5px solid var(--fire);
+      color: var(--fire);
+      border-radius: 50px;
+      padding: 10px 26px;
+      font-weight: 600;
+      font-size: .9rem;
+      transition: all .3s;
+      background: transparent;
+    }
+
+    .btn-outline-fire:hover {
+      background: rgba(255, 77, 0, .08);
+      transform: translateY(-2px);
+    }
+
+    /* Page Hero */
+    .page-hero {
+      padding: 160px 0 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(255, 77, 0, .1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255, 77, 0, .03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 77, 0, .03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .page-hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .text-fire {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .badge-tag {
+      display: inline-block;
+      padding: 6px 18px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      background: rgba(255, 77, 0, .08);
+      color: var(--amber);
+      font-size: .76rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    /* Sections */
+    section {
+      padding: 90px 0;
+    }
+
+    .bg-dark2 {
+      background: var(--dark2);
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      font-size: .98rem;
+      margin-bottom: 48px;
+      max-width: 540px;
+    }
+
+    /* Cards */
+    .wf-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px 28px;
+      height: 100%;
+      transition: all .3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .wf-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--gradient);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+
+    .wf-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(255, 77, 0, .4);
+      box-shadow: 0 0 40px rgba(255, 77, 0, .18);
+    }
+
+    .wf-card:hover::before {
+      opacity: 1;
+    }
+
+    .card-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: rgba(255, 77, 0, .1);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--fire);
+      margin-bottom: 20px;
+      transition: all .3s;
+    }
+
+    .wf-card:hover .card-icon {
+      background: rgba(255, 77, 0, .2);
+      transform: scale(1.08);
+    }
+
+    .wf-card h5 {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .wf-card p {
+      color: var(--muted);
+      font-size: .88rem;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    /* Feature rows */
+    .feature-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: all .3s;
+      margin-bottom: 16px;
+    }
+
+    .feature-item:hover {
+      border-color: rgba(255, 77, 0, .4);
+    }
+
+    .feature-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(255, 77, 0, .1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--fire);
+      flex-shrink: 0;
+    }
+
+    .feature-title {
+      font-weight: 600;
+      font-size: .95rem;
+      margin-bottom: 3px;
+    }
+
+    .feature-text {
+      color: var(--muted);
+      font-size: .84rem;
+    }
+
+    /* Team */
+    .team-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: all .3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .team-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--gradient);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+
+    .team-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255, 77, 0, .4);
+      box-shadow: 0 0 40px rgba(255, 77, 0, .18);
+    }
+
+    .team-card:hover::before {
+      opacity: 1;
+    }
+
+    .team-avatar {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: rgba(255, 77, 0, .1);
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      margin: 0 auto 16px;
+      transition: all .3s;
+    }
+
+    .team-card:hover .team-avatar {
+      border-color: var(--fire);
+      background: rgba(255, 77, 0, .18);
+      transform: scale(1.06);
+    }
+
+    .team-name {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+    }
+
+    .team-role {
+      color: var(--amber);
+      font-size: .82rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 12px;
+    }
+
+    .team-bio {
+      color: var(--muted);
+      font-size: .84rem;
+      line-height: 1.7;
+    }
+
+    /* About visual */
+    .about-visual {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 7rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gradient);
+      opacity: .05;
+    }
+
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(135deg, rgba(255, 77, 0, .12), rgba(255, 140, 0, .06));
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(255, 77, 0, .15) 0%, transparent 70%);
+    }
+
+    .cta-section h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .cta-section p {
+      color: var(--muted);
+      max-width: 460px;
+      margin: 0 auto 36px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark2);
+      border-top: 1px solid var(--border);
+      padding: 60px 0 28px;
+    }
+
+    .footer-brand-name {
+      font-size: 1.5rem;
+      font-weight: 800;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .footer-tagline {
+      color: var(--muted);
+      font-size: .88rem;
+      margin-top: 8px;
+      max-width: 260px;
+      line-height: 1.7;
+    }
+
+    footer h6 {
+      font-weight: 700;
+      font-size: .9rem;
+      color: #fff;
+      margin-bottom: 18px;
+    }
+
+    footer ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    footer ul li {
+      margin-bottom: 10px;
+    }
+
+    footer ul li a {
+      color: var(--muted);
+      font-size: .87rem;
+      transition: all .3s;
+    }
+
+    footer ul li a:hover {
+      color: var(--fire);
+      padding-left: 4px;
+    }
+
+    footer ul li span {
+      color: var(--muted);
+      font-size: .87rem;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      margin-top: 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-bottom p {
+      color: var(--muted);
+      font-size: .82rem;
+      margin: 0;
+    }
+
+    .footer-bottom a {
+      color: var(--fire);
+    }
+
+    /* Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .d1 {
+      transition-delay: .1s;
+    }
+
+    .d2 {
+      transition-delay: .2s;
+    }
+
+    .d3 {
+      transition-delay: .3s;
+    }
+
+    .d4 {
+      transition-delay: .4s;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><img src="img/weblogo.png" alt="WILDFIRE" style="height:58px;width:auto;object-fit:contain;margin-right:10px;" /><span style="font-family:Poppins,sans-serif;font-weight:800;font-size:1.4rem;background:linear-gradient(135deg,#FF4D00,#FF8C00,#FFD060);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:0.04em;vertical-align:middle;">WILDFIRE</span></a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+        aria-label="Toggle navigation" style="color:#fff;">
+        <i class="bi bi-list" style="font-size:1.5rem;"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu"
+        style="background:rgba(7,7,13,.97);border-radius:12px;margin-top:8px;padding:8px 16px;">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-1 py-2 py-lg-0" style="background:transparent;">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="privacy.html">Privacy</a></li>
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0"><a href="contact.html" class="btn btn-fire">Get
+              Started</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="hero-grid"></div>
+    <div class="container position-relative">
+      <span class="badge-tag reveal">Our Story</span>
+      <h1 class="reveal">We Are <span class="text-fire">WILDFIRE</span></h1>
+      <p class="reveal">A team of passionate technologists on a mission to fuel digital transformation — one business at
+        a time.</p>
+    </div>
+  </section>
+
+  <!-- COMPANY INTRO -->
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5 reveal">
+          <div class="about-visual"><img src="images/about-visual.png" alt="WILDFIRE Team" style="width:100%;height:100%;object-fit:cover;border-radius:20px;opacity:0.93;" /></div>
+        </div>
+        <div class="col-lg-7">
+          <span class="badge-tag reveal">Who We Are</span>
+          <h2 class="section-title reveal">Your Long-Term <span class="text-fire">Technology Partner</span></h2>
+          <p class="reveal" style="color:var(--muted);line-height:1.85;margin-bottom:18px;">WILDFIRE is a
+            forward-thinking IT company based in Surat, Gujarat, dedicated to helping businesses harness the full power
+            of modern technology. We don't just build products — we ignite digital transformations that create real,
+            measurable impact.</p>
+          <p class="reveal" style="color:var(--muted);line-height:1.85;margin-bottom:18px;">From custom web and mobile
+            applications to AI-powered automation and results-driven digital marketing, our team delivers solutions that
+            are built to perform. Every project is approached with strategic thinking, creative precision, and an
+            unrelenting commitment to quality.</p>
+          <p class="reveal" style="color:var(--muted);line-height:1.85;margin-bottom:32px;">What sets us apart is our
+            end-to-end ownership — from the first idea to the final launch and beyond. We're not just your vendor; we're
+            your long-term technology partner.</p>
+          <div class="row g-3 reveal">
+            <div class="col-4 text-center">
+              <div
+                style="font-size:2rem;font-weight:800;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">
+                120+</div>
+              <div style="color:var(--muted);font-size:.8rem;">Projects Done</div>
+            </div>
+            <div class="col-4 text-center">
+              <div
+                style="font-size:2rem;font-weight:800;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">
+                98%</div>
+              <div style="color:var(--muted);font-size:.8rem;">Satisfaction Rate</div>
+            </div>
+            <div class="col-4 text-center">
+              <div
+                style="font-size:2rem;font-weight:800;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">
+                4+</div>
+              <div style="color:var(--muted);font-size:.8rem;">Years Experience</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION & VISION -->
+  <section class="bg-dark2">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="badge-tag">Our Direction</span>
+        <h2 class="section-title">Mission &amp; <span class="text-fire">Vision</span></h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 reveal d1">
+          <div class="wf-card h-100">
+            <div class="card-icon"><i class="bi bi-bullseye"></i></div>
+            <h5>Our Mission</h5>
+            <p>To make cutting-edge digital solutions accessible to businesses of all sizes — combining deep technical
+              expertise with a passion for innovation. We exist to fuel growth, eliminate inefficiency, and turn bold
+              ideas into real digital impact.</p>
+          </div>
+        </div>
+        <div class="col-md-6 reveal d2">
+          <div class="wf-card h-100">
+            <div class="card-icon"><i class="bi bi-eye"></i></div>
+            <h5>Our Vision</h5>
+            <p>To become the most trusted technology partner for businesses across India and beyond — recognized not
+              just for the products we build, but for the lasting transformation we drive. A future where every
+              business, regardless of size, can leverage world-class technology.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Values -->
+      <div class="row g-4 mt-2">
+        <div class="col-md-6 col-lg-3 reveal d1">
+          <div class="wf-card text-center">
+            <div class="card-icon mx-auto"><i class="bi bi-lightbulb"></i></div>
+            <h5>Innovation</h5>
+            <p>We stay ahead of the curve so your business never falls behind.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal d2">
+          <div class="wf-card text-center">
+            <div class="card-icon mx-auto"><i class="bi bi-shield-check"></i></div>
+            <h5>Quality</h5>
+            <p>Every pixel and line of code is crafted with precision. Good enough isn't in our vocabulary.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal d3">
+          <div class="wf-card text-center">
+            <div class="card-icon mx-auto"><i class="bi bi-people"></i></div>
+            <h5>Partnership</h5>
+            <p>We build lasting relationships, not just products. Your success is our success.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal d4">
+          <div class="wf-card text-center">
+            <div class="card-icon mx-auto"><i class="bi bi-graph-up"></i></div>
+            <h5>Results</h5>
+            <p>We tie everything to real business outcomes. Metrics, not vanity.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY WILDFIRE -->
+  <section>
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5 reveal">
+          <span class="badge-tag">Why Choose Us</span>
+          <h2 class="section-title">Built Different. <span class="text-fire">Designed to Win.</span></h2>
+          <p style="color:var(--muted);margin-bottom:32px;">Here's what makes WILDFIRE the technology partner businesses
+            trust for long-term growth.</p>
+          <a href="contact.html" class="btn btn-fire">Start Your Project →</a>
+        </div>
+        <div class="col-lg-7">
+          <div class="reveal d1">
+            <div class="feature-item">
+              <div class="feature-icon"><i class="bi bi-layers"></i></div>
+              <div>
+                <div class="feature-title">End-to-End Solutions</div>
+                <div class="feature-text">Strategy, design, development, and marketing — everything under one roof.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="reveal d2">
+            <div class="feature-item">
+              <div class="feature-icon"><i class="bi bi-bar-chart-line"></i></div>
+              <div>
+                <div class="feature-title">Measurable Results</div>
+                <div class="feature-text">Every deliverable is tied to real business metrics. You always know what
+                  you're getting.</div>
+              </div>
+            </div>
+          </div>
+          <div class="reveal d3">
+            <div class="feature-item">
+              <div class="feature-icon"><i class="bi bi-lock"></i></div>
+              <div>
+                <div class="feature-title">Security & Reliability</div>
+                <div class="feature-text">Enterprise-grade security baked into everything we build.</div>
+              </div>
+            </div>
+          </div>
+          <div class="reveal d4">
+            <div class="feature-item">
+              <div class="feature-icon"><i class="bi bi-chat-dots"></i></div>
+              <div>
+                <div class="feature-title">Transparent Communication</div>
+                <div class="feature-text">Clear timelines, honest updates, and open collaboration throughout every
+                  project.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="bg-dark2">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="badge-tag">The Team</span>
+        <h2 class="section-title">The Minds Behind <span class="text-fire">WILDFIRE</span></h2>
+        <p class="section-sub mx-auto">Passionate experts united by one goal — to deliver technology that genuinely
+          transforms businesses.</p>
+      </div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-sm-6 col-lg-3 reveal d1">
+          <div class="team-card">
+            <div class="team-avatar">👨‍💼</div>
+            <div class="team-name">Arjun Mehta</div>
+            <div class="team-role">Founder & CEO</div>
+            <p class="team-bio">Visionary leader with 8+ years in tech, driving WILDFIRE's mission to fuel digital
+              transformation across industries.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 reveal d2">
+          <div class="team-card">
+            <div class="team-avatar">👩‍💻</div>
+            <div class="team-name">Priya Shah</div>
+            <div class="team-role">Lead Developer</div>
+            <p class="team-bio">Full-stack expert passionate about building fast, secure, and scalable web and mobile
+              applications.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 reveal d3">
+          <div class="team-card">
+            <div class="team-avatar">🧑‍🎨</div>
+            <div class="team-name">Rohan Desai</div>
+            <div class="team-role">UI/UX Designer</div>
+            <p class="team-bio">Creative mind crafting pixel-perfect interfaces that balance beauty with function and
+              user delight.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 reveal d4">
+          <div class="team-card">
+            <div class="team-avatar">👩‍📊</div>
+            <div class="team-name">Neha Patel</div>
+            <div class="team-role">Marketing Strategist</div>
+            <p class="team-bio">Data-driven growth expert turning brands into market leaders through precision digital
+              marketing campaigns.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container position-relative">
+      <div class="reveal">
+        <h2>Want to work with <span class="text-fire">WILDFIRE?</span></h2>
+        <p>We're always looking for exciting projects and great people to collaborate with. Let's build something
+          extraordinary.</p>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+          <a href="contact.html" class="btn btn-fire" style="font-size:1rem;padding:14px 34px;">Get Started →</a>
+          <a href="services.html" class="btn btn-outline-fire" style="font-size:1rem;padding:14px 34px;">View
+            Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <div class="footer-brand-name">WILDFIRE</div>
+          <p class="footer-tagline">Fueling the Future of Technology. Your vision, our expertise — unstoppable results.
+          </p>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+          <h6>Quick Links</h6>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <h6>Services</h6>
+          <ul>
+            <li><a href="services.html">Web Development</a></li>
+            <li><a href="services.html">App Development</a></li>
+            <li><a href="services.html">AI Solutions</a></li>
+            <li><a href="services.html">Digital Marketing</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h6>Contact</h6>
+          <ul>
+            <li><span>📍 Plot No 50, Shubhlaxmi Resi., Umra, Olpad, Surat — 394540</span></li>
+            <li><a href="tel:+917575059224">📞 +91 75750 59224</a></li>
+            <li><a href="mailto:wildfireinfotech12@gmail.com">📧 wildfireinfotech12@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 WILDFIRE Infotech. All rights reserved.</p>
+        <p>Made with 🔥 in Surat, Gujarat &nbsp;|&nbsp; <a
+            href="mailto:wildfireinfotech12@gmail.com">wildfireinfotech12@gmail.com</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+    });
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+
+</html>
+
